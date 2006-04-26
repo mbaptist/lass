@@ -28,11 +28,18 @@ void eval_lin_op(Vector & result,
 {
   result=linop(x)-b;
   //result-=b;
-  precond_result=precond(result);
-  if (solveadjoint)
-    {
-      precond_result=adjop(precond_result);
-    }
+	Vector precond_result_tmp=precond(result);
+	if(solveadjoint)
+	{
+		precond_result=adjop(precond_result_tmp);
+	}
+	else
+		precond_result=precond_result_tmp;
+	
+//   if (solveadjoint)
+//     {
+//       precond_result=adjop(precond_result);
+//     }
   ++nit;
 }
 
@@ -52,11 +59,13 @@ void eval_lin_op(Vector & result,
 		 const PreCond & precond)
 {
   result=linop(x);
-  precond_result=precond(result);
+  Vector precond_result_tmp=precond(result);
   if(solveadjoint)
     {
-      precond_result=adjop(precond_result);
+      precond_result=adjop(precond_result_tmp);
     }
+	else
+		precond_result=precond_result_tmp;
   ++nit;
 }
 
