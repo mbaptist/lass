@@ -1,6 +1,6 @@
 ########################################################################
 
-CXX = g++ -O3 -funroll-loops -fexpensive-optimizations -g 
+CXX = g++ -O3 -funroll-loops -fexpensive-optimizations  
 
 ########################################################################
 
