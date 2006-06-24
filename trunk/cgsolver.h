@@ -120,6 +120,10 @@ void cgsolver(LinOp & linop,
   int exit_adjoint=100;
   int nitea=0;
 
+
+	double efold;
+
+
  d6: 
   eval_lin_op(tt,rr,x,b,nit,adjoint,linop,adjop,*precond);
   ef=linop.scalar_prod(tt,tt);
@@ -188,9 +192,16 @@ void cgsolver(LinOp & linop,
 
   tt+=al*bt[k];
 
+ efold=ef;
   ef=linop.scalar_prod(tt,tt);
   er=linop.scalar_prod(rr,rr);
   //cout << nit << " " << ef << " " << er << endl;
+
+if(abs(ef-efold)<eps)
+{
+	cout << "Failed to converge: " << endl;
+	goto d10;
+}
   if(ef < eps)
     {
       adjoint=0;
@@ -249,6 +260,10 @@ void cgsolver(LinOp & linop,
   cout << "Iterations: " << nit << "  True errors= " << ef << "  " << er << endl;
   if(ef > eps) 
     goto d7;
+
+d10:
+	cout << "exiting cgsolver" << endl;
+
 }
 
 
