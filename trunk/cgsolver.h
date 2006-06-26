@@ -197,10 +197,10 @@ void cgsolver(LinOp & linop,
   er=linop.scalar_prod(rr,rr);
   //cout << nit << " " << ef << " " << er << endl;
 
-if(abs(ef-efold)<eps)
+if(abs(ef-efold)<1e-30)
 {
 	cout << "Failed to converge: " << endl;
-	goto d10;
+	return;
 }
   if(ef < eps)
     {
@@ -260,9 +260,6 @@ if(abs(ef-efold)<eps)
   cout << "Iterations: " << nit << "  True errors= " << ef << "  " << er << endl;
   if(ef > eps) 
     goto d7;
-
-d10:
-	cout << "exiting cgsolver" << endl;
 
 }
 
