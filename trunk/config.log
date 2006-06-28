@@ -31,6 +31,10 @@ PATH: /home/mbaptist/bin
 PATH: /opt/intel/idb/9.0/bin
 PATH: /opt/intel/cc/9.0/bin
 PATH: /opt/intel/fc/9.0/bin
+PATH: /home/mbaptist/bin
+PATH: /opt/intel/idb/9.0/bin
+PATH: /opt/intel/cc/9.0/bin
+PATH: /opt/intel/fc/9.0/bin
 PATH: /usr/lib/qt-3.3/bin
 PATH: /usr/kerberos/bin
 PATH: /usr/local/bin
@@ -38,6 +42,13 @@ PATH: /usr/bin
 PATH: /bin
 PATH: /usr/bin
 PATH: /usr/games
+PATH: /home/mbaptist/codes/cat
+PATH: /home/mbaptist/codes/lass
+PATH: /home/mbaptist/codes/godess
+PATH: /home/mbaptist/codes/goops
+PATH: /home/mbaptist/codes/mhdc3dl
+PATH: /home/mbaptist/codes/mhdc3dl/utils
+PATH: /home/mbaptist/codes/ns3dp
 PATH: /home/mbaptist/codes/cat
 PATH: /home/mbaptist/codes/lass
 PATH: /home/mbaptist/codes/godess
