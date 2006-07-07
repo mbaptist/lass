@@ -19,9 +19,14 @@ all: test
 clean:
 	@rm -rfv *.dat *~ *.o *.so test_cgsolver
 
+
+
+liblass:
+	$(CXX) -shared -o liblass.so $(OBJECTS)
+
 test: test_lass
 
-test_lass:  test_lass.o *.h
+test_lass: test_lass.o *.h
 	$(CXX) -o test_lass test_lass.o
 
 install:

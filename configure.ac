@@ -13,6 +13,7 @@ AC_PROG_RANLIB
 AC_PROG_CXX
 AC_PROG_CC
 AC_PROG_CPP
+AC_PROG_F95
 
 # Checks for libraries.
 AC_CHECK_LIB([fftw3],[fftw_destroy_plan])
@@ -39,6 +40,6 @@ AC_C_INLINE
 
 # Checks for library functions.
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile cgsolver/Makefile vzdeigen/Makefile testing/Makefile])
 AC_OUTPUT
 
