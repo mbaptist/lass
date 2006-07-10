@@ -1,4 +1,0 @@
-all:
-	g++ -g -I../cat test_cgsolver.C -o test_cgsolver
-
- 
