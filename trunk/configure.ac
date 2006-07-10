@@ -4,7 +4,7 @@
 AC_PREREQ(2.59)
 AC_INIT(cgsolver, 0.1b, mbaptist@fc.up.pt)
 
-AC_CONFIG_SRCDIR([test_lass.C])
+AC_CONFIG_SRCDIR([lass.h])
 
 AC_PROG_INSTALL
 AC_PROG_RANLIB
@@ -13,7 +13,7 @@ AC_PROG_RANLIB
 AC_PROG_CXX
 AC_PROG_CC
 AC_PROG_CPP
-AC_PROG_F95
+AC_PROG_F77
 
 # Checks for libraries.
 AC_CHECK_LIB([fftw3],[fftw_destroy_plan])
