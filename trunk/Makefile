@@ -1,6 +1,6 @@
 ########################################################################
 
-CXX = g++ -g -O2
+CXX = g++ -O3 -funroll-loops -fexpensive-optimizations  
 
 AR = ar rcs
 
@@ -12,7 +12,7 @@ HEADERS_INSTALL_LIST = *.h
 
 INSTALL_ROOT = /usr/local
 
-INCLUDE = -I/home/mbaptist/codes
+INCLUDE = -I/home/mbaptist/work/codes/devel/cat
 LIB = -L.
 
 OBJECTS=./vzdeigen/vzdeigen.o
@@ -40,7 +40,7 @@ distclean: clean
 	
 liblass:
 	$(MAKE) -C vzdeigen
-	$(CXX) -shared -o liblass.so $(OBJECTS) -static -L/opt/intel/fc/9.0/lib -lifcore -limf
+	$(CXX) -shared -o liblass.so $(OBJECTS) -L/opt/intel/fc/9.0/lib -lifcore
 	$(AR) liblass.a $(OBJECTS)
 
 testing:
