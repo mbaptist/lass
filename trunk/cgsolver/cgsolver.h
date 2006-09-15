@@ -117,7 +117,8 @@ void cgsolver(LinOp & linop,
 
   bool adjoint=0;
   
-  int exit_adjoint=100;
+  //int exit_adjoint=100;
+  int exit_adjoint=0;	
   int nitea=0;
 
 
