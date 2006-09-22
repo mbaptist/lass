@@ -89,7 +89,7 @@ configure:1586: g++ -V </dev/null >&5
 g++: '-V' option must have argument
 configure:1589: $? = 1
 configure:1612: checking for C++ compiler default output file name
-configure:1615: g++ -O3 -funroll-loops -fexpensive-optimizations  -mtune=opteron -fPIC   conftest.cc  >&5
+configure:1615: g++ -O3 -funroll-loops -fexpensive-optimizations     conftest.cc  >&5
 configure:1618: $? = 0
 configure:1664: result: a.out
 configure:1669: checking whether the C++ compiler works
@@ -99,15 +99,15 @@ configure:1695: result: yes
 configure:1702: checking whether we are cross compiling
 configure:1704: result: no
 configure:1707: checking for suffix of executables
-configure:1709: g++ -o conftest -O3 -funroll-loops -fexpensive-optimizations  -mtune=opteron -fPIC   conftest.cc  >&5
+configure:1709: g++ -o conftest -O3 -funroll-loops -fexpensive-optimizations     conftest.cc  >&5
 configure:1712: $? = 0
 configure:1737: result: 
 configure:1743: checking for suffix of object files
-configure:1764: g++ -c -O3 -funroll-loops -fexpensive-optimizations  -mtune=opteron -fPIC  conftest.cc >&5
+configure:1764: g++ -c -O3 -funroll-loops -fexpensive-optimizations    conftest.cc >&5
 configure:1767: $? = 0
 configure:1789: result: o
 configure:1793: checking whether we are using the GNU C++ compiler
-configure:1817: g++ -c -O3 -funroll-loops -fexpensive-optimizations  -mtune=opteron -fPIC  conftest.cc >&5
+configure:1817: g++ -c -O3 -funroll-loops -fexpensive-optimizations    conftest.cc >&5
 configure:1823: $? = 0
 configure:1827: test -z 
 			 || test ! -s conftest.err
@@ -124,14 +124,14 @@ configure:1889: $? = 0
 configure:1892: test -s conftest.o
 configure:1895: $? = 0
 configure:1906: result: yes
-configure:1948: g++ -c -O3 -funroll-loops -fexpensive-optimizations  -mtune=opteron -fPIC  conftest.cc >&5
+configure:1948: g++ -c -O3 -funroll-loops -fexpensive-optimizations    conftest.cc >&5
 configure:1954: $? = 0
 configure:1958: test -z 
 			 || test ! -s conftest.err
 configure:1961: $? = 0
 configure:1964: test -s conftest.o
 configure:1967: $? = 0
-configure:1993: g++ -c -O3 -funroll-loops -fexpensive-optimizations  -mtune=opteron -fPIC  conftest.cc >&5
+configure:1993: g++ -c -O3 -funroll-loops -fexpensive-optimizations    conftest.cc >&5
 conftest.cc: In function 'int main()':
 conftest.cc:13: error: 'exit' was not declared in this scope
 configure:1999: $? = 1
@@ -152,14 +152,14 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:1948: g++ -c -O3 -funroll-loops -fexpensive-optimizations  -mtune=opteron -fPIC  conftest.cc >&5
+configure:1948: g++ -c -O3 -funroll-loops -fexpensive-optimizations    conftest.cc >&5
 configure:1954: $? = 0
 configure:1958: test -z 
 			 || test ! -s conftest.err
 configure:1961: $? = 0
 configure:1964: test -s conftest.o
 configure:1967: $? = 0
-configure:1993: g++ -c -O3 -funroll-loops -fexpensive-optimizations  -mtune=opteron -fPIC  conftest.cc >&5
+configure:1993: g++ -c -O3 -funroll-loops -fexpensive-optimizations    conftest.cc >&5
 configure:1999: $? = 0
 configure:2003: test -z 
 			 || test ! -s conftest.err
@@ -188,7 +188,7 @@ configure:2364: gcc -V </dev/null >&5
 gcc: '-V' option must have argument
 configure:2367: $? = 1
 configure:2370: checking whether we are using the GNU C compiler
-configure:2394: gcc -c -O3 -funroll-loops -fexpensive-optimizations  -mtune=opteron -fPIC  conftest.c >&5
+configure:2394: gcc -c -O3 -funroll-loops -fexpensive-optimizations  -mtune=pentium-m  conftest.c >&5
 configure:2400: $? = 0
 configure:2404: test -z 
 			 || test ! -s conftest.err
@@ -206,7 +206,7 @@ configure:2469: test -s conftest.o
 configure:2472: $? = 0
 configure:2483: result: yes
 configure:2500: checking for gcc option to accept ANSI C
-configure:2570: gcc  -c -O3 -funroll-loops -fexpensive-optimizations  -mtune=opteron -fPIC  conftest.c >&5
+configure:2570: gcc  -c -O3 -funroll-loops -fexpensive-optimizations  -mtune=pentium-m  conftest.c >&5
 configure:2576: $? = 0
 configure:2580: test -z 
 			 || test ! -s conftest.err
@@ -214,7 +214,7 @@ configure:2583: $? = 0
 configure:2586: test -s conftest.o
 configure:2589: $? = 0
 configure:2607: result: none needed
-configure:2625: gcc -c -O3 -funroll-loops -fexpensive-optimizations  -mtune=opteron -fPIC  conftest.c >&5
+configure:2625: gcc -c -O3 -funroll-loops -fexpensive-optimizations  -mtune=pentium-m  conftest.c >&5
 conftest.c:2: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'me'
 configure:2631: $? = 1
 configure: failed program was:
@@ -303,7 +303,7 @@ configure:3194: test -s conftest.o
 configure:3197: $? = 0
 configure:3209: result: yes
 configure:3238: checking for fftw_destroy_plan in -lfftw3
-configure:3268: gcc -o conftest -O3 -funroll-loops -fexpensive-optimizations  -mtune=opteron -fPIC   conftest.c -lfftw3   >&5
+configure:3268: gcc -o conftest -O3 -funroll-loops -fexpensive-optimizations  -mtune=pentium-m   conftest.c -lfftw3   >&5
 configure:3274: $? = 0
 configure:3278: test -z 
 			 || test ! -s conftest.err
@@ -312,7 +312,7 @@ configure:3284: test -s conftest
 configure:3287: $? = 0
 configure:3300: result: yes
 configure:3337: checking for an ANSI C-conforming const
-configure:3404: gcc -c -O3 -funroll-loops -fexpensive-optimizations  -mtune=opteron -fPIC  conftest.c >&5
+configure:3404: gcc -c -O3 -funroll-loops -fexpensive-optimizations  -mtune=pentium-m  conftest.c >&5
 configure:3410: $? = 0
 configure:3414: test -z 
 			 || test ! -s conftest.err
@@ -321,7 +321,7 @@ configure:3420: test -s conftest.o
 configure:3423: $? = 0
 configure:3434: result: yes
 configure:3444: checking for inline
-configure:3465: gcc -c -O3 -funroll-loops -fexpensive-optimizations  -mtune=opteron -fPIC  conftest.c >&5
+configure:3465: gcc -c -O3 -funroll-loops -fexpensive-optimizations  -mtune=pentium-m  conftest.c >&5
 configure:3471: $? = 0
 configure:3475: test -z 
 			 || test ! -s conftest.err
@@ -362,13 +362,13 @@ ac_cv_cxx_compiler_gnu=yes
 ac_cv_env_CC_set=
 ac_cv_env_CC_value=
 ac_cv_env_CFLAGS_set=set
-ac_cv_env_CFLAGS_value='-O3 -funroll-loops -fexpensive-optimizations  -mtune=opteron -fPIC'
+ac_cv_env_CFLAGS_value='-O3 -funroll-loops -fexpensive-optimizations  -mtune=pentium-m'
 ac_cv_env_CPPFLAGS_set=
 ac_cv_env_CPPFLAGS_value=
 ac_cv_env_CPP_set=
 ac_cv_env_CPP_value=
 ac_cv_env_CXXFLAGS_set=set
-ac_cv_env_CXXFLAGS_value='-O3 -funroll-loops -fexpensive-optimizations  -mtune=opteron -fPIC'
+ac_cv_env_CXXFLAGS_value='-O3 -funroll-loops -fexpensive-optimizations  '
 ac_cv_env_CXX_set=
 ac_cv_env_CXX_value=
 ac_cv_env_F77_set=set
@@ -404,11 +404,11 @@ ac_cv_prog_f77_g=yes
 CAT_CFLAGS='-I/home/mbaptist/work/codes/devel/cat/include'
 CAT_PREFIX='/home/mbaptist/work/codes/devel/cat'
 CC='gcc'
-CFLAGS='-O3 -funroll-loops -fexpensive-optimizations  -mtune=opteron -fPIC'
+CFLAGS='-O3 -funroll-loops -fexpensive-optimizations  -mtune=pentium-m'
 CPP='gcc -E'
 CPPFLAGS=''
 CXX='g++'
-CXXFLAGS='-O3 -funroll-loops -fexpensive-optimizations  -mtune=opteron -fPIC'
+CXXFLAGS='-O3 -funroll-loops -fexpensive-optimizations  '
 DEFS='-DPACKAGE_NAME=\"cgsolver\" -DPACKAGE_TARNAME=\"cgsolver\" -DPACKAGE_VERSION=\"0.1b\" -DPACKAGE_STRING=\"cgsolver\ 0.1b\" -DPACKAGE_BUGREPORT=\"mbaptist@fc.up.pt\" -DHAVE_LIBFFTW3=1 '
 ECHO_C=''
 ECHO_N='-n'
