@@ -13,7 +13,12 @@ AC_PROG_RANLIB
 AC_PROG_CXX
 AC_PROG_CC
 AC_PROG_CPP
-AC_PROG_F77
+
+FORTRAN="ifort"
+AC_SUBST(FORTRAN)
+
+FORTRAN_PATH=`which ifort | perl -pi -e "s/\/bin\/ifort//g"`
+AC_SUBST(FORTRAN_PATH)
 
 # Checks for libraries.
 AC_CHECK_LIB([fftw3],[fftw_destroy_plan])

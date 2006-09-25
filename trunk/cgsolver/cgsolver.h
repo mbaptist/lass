@@ -27,19 +27,15 @@ void eval_lin_op(Vector & result,
 		 const PreCond & precond)
 {
   result=linop(x)-b;
-  //result-=b;
-	Vector precond_result_tmp=precond(result);
-	if(solveadjoint)
-	{
-		precond_result=adjop(precond_result_tmp);
-	}
-	else
-		precond_result=precond_result_tmp;
-	
-//   if (solveadjoint)
-//     {
-//       precond_result=adjop(precond_result);
-//     }
+  Vector precond_result_tmp=precond(result);
+  if(solveadjoint)
+    {
+      precond_result=adjop(precond_result_tmp);
+    }
+  else
+    {
+      precond_result=precond_result_tmp;
+    }	
   ++nit;
 }
 
@@ -64,8 +60,10 @@ void eval_lin_op(Vector & result,
     {
       precond_result=adjop(precond_result_tmp);
     }
-	else
-		precond_result=precond_result_tmp;
+  else
+    {
+      precond_result=precond_result_tmp;
+    }
   ++nit;
 }
 
@@ -102,26 +100,23 @@ void cgsolver(LinOp & linop,
 
   Vector rr(x),tt(x),br(x),rt(x);
 
-  vector<Vector> dd(kk,Vector(x));
-  vector<Vector> bd(kk,Vector(x));
-  vector<Vector> bt(kk,Vector(x));
+  std::vector<Vector> dd(kk,Vector(x));
+  std::vector<Vector> bd(kk,Vector(x));
+  std::vector<Vector> bt(kk,Vector(x));
 
-  vector<Real> abd(kk,0);
+  std::vector<Real> abd(kk,0);
 
   Real ef,er,al;
   int k;
   int nit=0;
 
-  //Vector aux(x);
   Real bkj;
 
   bool adjoint=0;
   
-  //int exit_adjoint=100;
-  int exit_adjoint=0;	
+  int exit_adjoint=100;
+  //int exit_adjoint=0;	
   int nitea=0;
-
-
 
  d6: 
   eval_lin_op(tt,rr,x,b,nit,adjoint,linop,adjop,*precond);
@@ -140,11 +135,8 @@ void cgsolver(LinOp & linop,
 
  d1:
   abd[k]=linop.scalar_prod(bd[k],bd[k]);
-  //al=linop.scalar_prod(br,rr)/abd[k];
   al=-linop.scalar_prod(bd[k],rr)/abd[k];
-
   //cout << "al= " << al << endl;
-
   if (abs(al)<small)
     {
       if( ( adjoint==0 ) && ( k >= kk-2 ) )
@@ -169,39 +161,19 @@ void cgsolver(LinOp & linop,
 	}
     }
 
-//    aux=dd[k];
-//    aux*=al;
-//    x+=aux;
-
-  x+=(al*dd[k]);
-
-  //cout << "norm before: " << linop.scalar_prod(rr,rr) << endl;
-
-//   aux=bd[k];
-//   aux*=al;
-//   rr+=aux;
-
+  x+=al*dd[k];
   rr+=al*bd[k];
-
-  //cout << "norm after: " << linop.scalar_prod(rr,rr) << endl;
-
-//   aux=bt[k];
-//   aux*=al;
-//   tt+=aux;
-
   tt+=al*bt[k];
-
 
   ef=linop.scalar_prod(tt,tt);
   er=linop.scalar_prod(rr,rr);
-  //cout << nit << " " << ef << " " << er << endl;
 
   if(ef < eps)
     {
       adjoint=0;
       goto d9;
     }
-
+  
   eval_lin_op(rt,br,rr,nit,adjoint,linop,adjop,*precond);
 	
   cout << nit << " " << ef << " " << er << endl;	
@@ -212,22 +184,9 @@ void cgsolver(LinOp & linop,
   for(int j=0;j<k;++j)
     {
       bkj=linop.scalar_prod(bd[j],br)/abd[j];
-//       aux=dd[j];
-//       aux*=bkj;
-//       dd[k+1]+=aux;
-//       aux=bt[j];
-//       aux*=bkj;
-//       bt[k+1]+=aux;
-//       aux=bd[j];
-//       aux*=bkj;
-//       bd[k+1]+=aux;
-
       dd[k+1]+=bkj*dd[j];
       bt[k+1]+=bkj*bt[j];
       bd[k+1]+=bkj*bd[j];
-
-
-
     }
   if(k == kk-2)
     {
@@ -241,9 +200,8 @@ void cgsolver(LinOp & linop,
     }
   else
     {
-	  ++k;
+      ++k;
     }
-
 
   goto d1;
  
@@ -254,19 +212,8 @@ void cgsolver(LinOp & linop,
   cout << "Iterations: " << nit << "  True errors= " << ef << "  " << er << endl;
   if(ef > eps) 
     goto d7;
-
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 #endif
+
