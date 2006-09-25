@@ -83,27 +83,24 @@ m4trace:configure.ac:15: -1- AC_PROG_CPP
 m4trace:configure.ac:15: -1- AC_SUBST([CPP])
 m4trace:configure.ac:15: -1- AC_SUBST([CPPFLAGS])
 m4trace:configure.ac:15: -1- AC_SUBST([CPP])
-m4trace:configure.ac:16: -1- AC_SUBST([F77])
-m4trace:configure.ac:16: -1- AC_SUBST([FFLAGS])
-m4trace:configure.ac:16: -1- AC_SUBST([LDFLAGS])
-m4trace:configure.ac:16: -1- AC_SUBST([F77])
-m4trace:configure.ac:16: -1- AC_SUBST([ac_ct_F77])
-m4trace:configure.ac:19: -1- AC_CHECK_LIB([fftw3], [fftw_destroy_plan])
-m4trace:configure.ac:19: -1- AH_OUTPUT([HAVE_LIBFFTW3], [/* Define to 1 if you have the `fftw3\' library (-lfftw3). */
+m4trace:configure.ac:18: -1- AC_SUBST([FORTRAN])
+m4trace:configure.ac:21: -1- AC_SUBST([FORTRAN_PATH])
+m4trace:configure.ac:24: -1- AC_CHECK_LIB([fftw3], [fftw_destroy_plan])
+m4trace:configure.ac:24: -1- AH_OUTPUT([HAVE_LIBFFTW3], [/* Define to 1 if you have the `fftw3\' library (-lfftw3). */
 #undef HAVE_LIBFFTW3])
-m4trace:configure.ac:19: -1- AC_DEFINE_TRACE_LITERAL([HAVE_LIBFFTW3])
-m4trace:configure.ac:32: -1- AC_SUBST([CAT_PREFIX])
-m4trace:configure.ac:34: -1- AC_SUBST([CAT_CFLAGS])
-m4trace:configure.ac:38: -1- AC_C_CONST
-m4trace:configure.ac:38: -1- AC_DEFINE_TRACE_LITERAL([const])
-m4trace:configure.ac:38: -1- AH_OUTPUT([const], [/* Define to empty if `const\' does not conform to ANSI C. */
+m4trace:configure.ac:24: -1- AC_DEFINE_TRACE_LITERAL([HAVE_LIBFFTW3])
+m4trace:configure.ac:37: -1- AC_SUBST([CAT_PREFIX])
+m4trace:configure.ac:39: -1- AC_SUBST([CAT_CFLAGS])
+m4trace:configure.ac:43: -1- AC_C_CONST
+m4trace:configure.ac:43: -1- AC_DEFINE_TRACE_LITERAL([const])
+m4trace:configure.ac:43: -1- AH_OUTPUT([const], [/* Define to empty if `const\' does not conform to ANSI C. */
 #undef const])
-m4trace:configure.ac:39: -1- AC_C_INLINE
-m4trace:configure.ac:39: -1- AH_OUTPUT([inline], [/* Define to `__inline__\' or `__inline\' if that\'s what the C compiler
+m4trace:configure.ac:44: -1- AC_C_INLINE
+m4trace:configure.ac:44: -1- AH_OUTPUT([inline], [/* Define to `__inline__\' or `__inline\' if that\'s what the C compiler
    calls it, or to nothing if \'inline\' is not supported under any name.  */
 #ifndef __cplusplus
 #undef inline
 #endif])
-m4trace:configure.ac:43: -1- AC_CONFIG_FILES([Makefile cgsolver/Makefile vzdeigen/Makefile testing/Makefile])
-m4trace:configure.ac:44: -1- AC_SUBST([LIB@&t@OBJS], [$ac_libobjs])
-m4trace:configure.ac:44: -1- AC_SUBST([LTLIBOBJS], [$ac_ltlibobjs])
+m4trace:configure.ac:48: -1- AC_CONFIG_FILES([Makefile cgsolver/Makefile vzdeigen/Makefile testing/Makefile])
+m4trace:configure.ac:49: -1- AC_SUBST([LIB@&t@OBJS], [$ac_libobjs])
+m4trace:configure.ac:49: -1- AC_SUBST([LTLIBOBJS], [$ac_ltlibobjs])

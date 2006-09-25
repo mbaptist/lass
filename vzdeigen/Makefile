@@ -6,7 +6,7 @@
 
 ############################################################################
 
-F77 = ifort -static-libcxa -i-static
+FORTRAN = ifort -static-libcxa -i-static -fPIC -O5
 
 AR = ar
 
@@ -40,7 +40,7 @@ distclean: clean
 	@rm -rfv *~
 
 vzdeigen.o: vzdeigen.f 
-	$(F77) -static-libcxa -c vzdeigen.f -o vzdeigen.o
+	$(FORTRAN) -c vzdeigen.f -o vzdeigen.o
 
 
 

@@ -4,6 +4,7 @@ CXX = g++ -O3 -funroll-loops -fexpensive-optimizations
 
 AR = ar rcs
 
+FORTRAN_PATH = /opt/intel/fc/9.0
 
 ########################################################################
 
@@ -16,6 +17,8 @@ INCLUDE = -I/home/mbaptist/work/codes/devel/cat
 LIB = -L.
 
 OBJECTS=./vzdeigen/vzdeigen.o
+
+FORTRAN_LIBS = -L$(FORTRAN_PATH)/lib -lifcore
 
 
 ########################################################################
@@ -40,7 +43,7 @@ distclean: clean
 	
 liblass:
 	$(MAKE) -C vzdeigen
-	$(CXX) -shared -o liblass.so $(OBJECTS) -L/opt/intel/fc/9.0/lib -lifcore
+	$(CXX) -shared -o liblass.so $(OBJECTS) $(FORTRAN_LIBS)
 	$(AR) liblass.a $(OBJECTS)
 
 testing:
