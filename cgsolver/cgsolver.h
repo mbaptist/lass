@@ -137,6 +137,7 @@ void cgsolver(LinOp & linop,
   abd[k]=linop.scalar_prod(bd[k],bd[k]);
   al=-linop.scalar_prod(bd[k],rr)/abd[k];
   //cout << "al= " << al << endl;
+#if 0
   if (abs(al)<small)
     {
       if( ( adjoint==0 ) && ( k >= kk-2 ) )
@@ -160,6 +161,8 @@ void cgsolver(LinOp & linop,
 	    }
 	}
     }
+
+#endif
 
   x+=al*dd[k];
   rr+=al*bd[k];
