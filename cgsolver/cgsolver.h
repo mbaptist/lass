@@ -95,6 +95,7 @@ void cgsolver(LinOp & linop,
   //Real qq=.75; - this is part of PreCond now.
 
   float small=linop_small;
+
   const PreCond * precond;
   precond=&linop_precond;
 
@@ -117,6 +118,7 @@ void cgsolver(LinOp & linop,
   int exit_adjoint=100;
   //int exit_adjoint=0;	
   int nitea=0;
+
 
  d6: 
   eval_lin_op(tt,rr,x,b,nit,adjoint,linop,adjop,*precond);
@@ -173,7 +175,14 @@ void cgsolver(LinOp & linop,
 
   if(ef < eps)
     {
-      adjoint=0;
+      if(adjoint==1)
+	{
+		cout << "Exiting adjoint... " << endl;
+              small=linop_small;
+              adjoint=0;
+		precond=&linop_precond;
+      	  }
+      
       goto d9;
     }
   
