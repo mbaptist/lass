@@ -27,14 +27,13 @@ void eval_lin_op(Vector & result,
 		 const PreCond & precond)
 {
   result=linop(x)-b;
-  Vector precond_result_tmp=precond(result);
   if(solveadjoint)
     {
-      precond_result=adjop(precond_result_tmp);
+      precond_result=adjop(precond(result));
     }
   else
     {
-      precond_result=precond_result_tmp;
+      precond_result=precond(result);
     }	
   ++nit;
 }
@@ -55,19 +54,16 @@ void eval_lin_op(Vector & result,
 		 const PreCond & precond)
 {
   result=linop(x);
-  Vector precond_result_tmp=precond(result);
   if(solveadjoint)
     {
-      precond_result=adjop(precond_result_tmp);
+      precond_result=adjop(precond(result));
     }
   else
     {
-      precond_result=precond_result_tmp;
+      precond_result=precond(result);
     }
   ++nit;
 }
-
-
 
 
 ////////////////////////////////////////////////////////////////////////////
@@ -94,10 +90,10 @@ void cgsolver(LinOp & linop,
   //float small=.01;
   //Real qq=.75; - this is part of PreCond now.
 
-  float small=linop_small;
-
   const PreCond * precond;
   precond=&linop_precond;
+
+  float small=linop_small;
 
   Vector rr(x),tt(x),br(x),rt(x);
 
@@ -115,11 +111,9 @@ void cgsolver(LinOp & linop,
 
   bool adjoint=0;
   
-  int exit_adjoint=100;
+  int exit_adjoint=50;
   //int exit_adjoint=0;	
   int nitea=0;
-
-
  d6: 
   eval_lin_op(tt,rr,x,b,nit,adjoint,linop,adjop,*precond);
   ef=linop.scalar_prod(tt,tt);
@@ -134,13 +128,11 @@ void cgsolver(LinOp & linop,
   bd[0]=-br;
   bt[0]=-rt;
   k=0;
-
  d1:
   abd[k]=linop.scalar_prod(bd[k],bd[k]);
   al=-linop.scalar_prod(bd[k],rr)/abd[k];
   //cout << "al= " << al << endl;
-
-  if (abs(al)<small)
+  if (abs(al)<small && ( nit-nitea>=exit_adjoint ))
     {
       if( ( adjoint==0 ) && ( k >= kk-2 ) )
 	{
@@ -151,45 +143,34 @@ void cgsolver(LinOp & linop,
 	  nitea=nit;
 	  goto d6;
 	}
-      else
+      else if( ( adjoint==1 ) && ( nit-nitea>=exit_adjoint ) )
 	{
-	  if( ( adjoint==1 ) && ( nit-nitea>=exit_adjoint ) )
-	    {
-	      cout << "Exiting adjoint... " << endl;
-	      small=linop_small;
-	      adjoint=0;
-	      precond=&linop_precond;
-	      goto d9;
-	    }
+	  cout << "Exiting adjoint... " << endl;
+	  small=linop_small;
+	  adjoint=0;
+	  precond=&linop_precond;
+	  nitea=nit;
+	  goto d9;
 	}
     }
-
-
-
   x+=al*dd[k];
   rr+=al*bd[k];
   tt+=al*bt[k];
-
   ef=linop.scalar_prod(tt,tt);
   er=linop.scalar_prod(rr,rr);
-
   if(ef < eps)
     {
       if(adjoint==1)
 	{
-		cout << "Exiting adjoint... " << endl;
-              small=linop_small;
-              adjoint=0;
-		precond=&linop_precond;
-      	  }
-      
+	  cout << "Exiting adjoint... " << endl;
+	  small=linop_small;
+	  adjoint=0;
+	  precond=&linop_precond;
+	}
       goto d9;
     }
-  
   eval_lin_op(rt,br,rr,nit,adjoint,linop,adjop,*precond);
-	
   cout << nit << " " << ef << " " << er << endl;	
-
   dd[k+1]=-rr;
   bd[k+1]=-br;
   bt[k+1]=-rt;  
@@ -214,9 +195,8 @@ void cgsolver(LinOp & linop,
     {
       ++k;
     }
-
+  
   goto d1;
- 
  d9: 
   eval_lin_op(rt,rr,x,b,nit,adjoint,linop,adjop,*precond);
   ef=linop.scalar_prod(rt,rt);
