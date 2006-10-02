@@ -132,7 +132,7 @@ void cgsolver(LinOp & linop,
   abd[k]=linop.scalar_prod(bd[k],bd[k]);
   al=-linop.scalar_prod(bd[k],rr)/abd[k];
   //cout << "al= " << al << endl;
-  if (abs(al)<small && ( nit-nitea>=exit_adjoint ))
+  if (abs(al)<small)
     {
       if( ( adjoint==0 ) && ( k >= kk-2 ) )
 	{
@@ -149,7 +149,6 @@ void cgsolver(LinOp & linop,
 	  small=linop_small;
 	  adjoint=0;
 	  precond=&linop_precond;
-	  nitea=nit;
 	  goto d9;
 	}
     }
