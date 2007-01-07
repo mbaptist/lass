@@ -41,6 +41,5 @@ distclean: clean
 
 vzdeigen.o: vzdeigen.f 
 	$(FORTRAN) -c vzdeigen.f -o vzdeigen.o
-
-
+	$(FORTRAN) -c vzdeigen_vz.f -o vzdeigen_vz.o
 
