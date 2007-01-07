@@ -16,7 +16,7 @@ INSTALL_ROOT = /usr/local
 INCLUDE = -I/home/mbaptist/work/codes/devel/cat
 LIB = -L.
 
-OBJECTS=./vzdeigen/vzdeigen.o
+OBJECTS=./vzdeigen/vzdeigen.o ./vzdeigen/vzdeigen_vz.o
 
 FORTRAN_LIBS = -L$(FORTRAN_PATH)/lib -lifcore
 
