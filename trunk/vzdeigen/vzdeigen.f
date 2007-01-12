@@ -1,3 +1,24 @@
+
+
+c Copyright 2004,2005,2006 Manuel Baptista
+c
+c This file is part of LASS
+c
+c LASS is free software; you can redistribute it and/or modify
+c it under the terms of the GNU General Public License as published by
+c the Free Software Foundation; either version 2 of the License, or
+c (at your option) any later version.
+c
+c LASS is distributed in the hope that it will be useful,
+c but WITHOUT ANY WARRANTY; without even the implied warranty of
+c MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+c GNU General Public License for more details.
+c
+c You should have received a copy of the GNU General Public License
+c along with this program; if not, write to the Free Software
+c Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+
 ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c
 c vzdeigen - dominant eigenvalue and vector of a linear operator
