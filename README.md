@@ -1,3 +1,3 @@
-# lassie
+# lass
 Linear Algebra Solving System
 
