@@ -1,1 +1,0 @@
-/usr/lib64/ccache/c++  -fPIC    -shared -Wl,-soname,liblass.so -o liblass.so CMakeFiles/lass.dir/cgsolver/cgsolver.C.o /home/mbaptist/fcup/projects/cat/install/lib/libcat.so -Wl,-rpath,/home/mbaptist/fcup/projects/cat/install/lib: 

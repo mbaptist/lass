@@ -1,6 +1,0 @@
-/home/mbaptist/fcup/projects/lass/install/lib/liblass.so
-/home/mbaptist/fcup/projects/lass/install/include/lass/lass.h
-/home/mbaptist/fcup/projects/lass/install/include/lass/cgsolver/cgsolver.h
-/home/mbaptist/fcup/projects/lass/install/include/lass/cgsolver/cgsolver_matrix.h
-/home/mbaptist/fcup/projects/lass/install/include/lass/cgsolver/cgsolver_new.h
-/home/mbaptist/fcup/projects/lass/install/include/lass/cgsolver/cgsolver_old.h
