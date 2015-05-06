@@ -36,7 +36,7 @@ set(CGSOLVER_SOURCES
 set(SOURCES ${SOURCES} ${CGSOLVER_SOURCES})
 
 set(VZDEIGEN_DIR "${SRC_DIR}/vzdeigen")
-set(VZDEIGEN_YUIO "${VZDEIGEN_DIR}/yuio.f")
+set(VZDEIGEN_YUIO "${CMAKE_SOURCE_DIR}/external/yuio.f")
 
 if(EXISTS ${VZDEIGEN_YUIO})
 
@@ -51,6 +51,7 @@ if(EXISTS ${VZDEIGEN_YUIO})
 	set(VZDEIGEN_SOURCES
 
 	"${VZDEIGEN_DIR}/vzdeigen.f"
+	"${VZDEIGEN_YUIO}"
 
 	)
 
