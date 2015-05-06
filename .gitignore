@@ -2,4 +2,5 @@
 build/
 install/
 external/yuio.f
+external/*
 
